@@ -65,7 +65,7 @@ async function verifyProof(proof, publicSignals) {
     const vKey = JSON.parse(fs.readFileSync(vKeyPath, "utf8"));
 
     // Load trusted hashes (public)
-    const trustedHashes = JSON.parse(fs.readFileSync("valid_students.json", "utf8"));
+    const trustedHashes = JSON.parse(fs.readFileSync("trusted_hashes.json", "utf8"));
 
     const publicHash = publicSignals[0];
     console.log("Received Public Signal (Hash):", publicHash);
@@ -117,7 +117,7 @@ async function main() {
     }
 
     // Generate Proof
-    console.log("🔹 Generating proof...");
+    console.log("Generating proof...");
     try {
         const { proof, publicSignals } = await generateProof();
         console.log("Proof generated!");
@@ -138,3 +138,4 @@ async function main() {
 
 // Run the main function
 main();
+
